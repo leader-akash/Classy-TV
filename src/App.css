@@ -5,3 +5,7 @@
 .App{
   background-color: var(--primary-color);
 }
+
+.Toastify__toast{
+  top: 3rem;
+}

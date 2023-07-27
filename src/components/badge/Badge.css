@@ -17,3 +17,18 @@
 .badge-items:hover{
     background-color: #ece9e9;
 }
+
+.badge-hover{
+    color: black !important;
+}
+
+/* .badge-all{
+    font-weight: bold;
+    background-color: #ccc;
+} */
+
+.badge-items.active-text {
+    color: black;
+    font-weight: bold;
+    background-color: #ccc;
+}

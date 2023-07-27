@@ -5,6 +5,7 @@ import Badge from '../../components/badge/Badge';
 // import VideoCard from '../../components/card/VideoCard';
 // import videoCardData from '../../data/VideoCard.data';
 import CardItems from './sub-component/CardItems';
+import NewBadge from 'components/badge/NewBadge';
 
 const Homepage = () => {
   return (
@@ -12,21 +13,6 @@ const Homepage = () => {
       <Sidebar />
       <Badge />
       <div className="videoCardFlex">
-        {/* {
-          videoCardData.map((el,i)=>{
-            console.log(el);
-            return (
-            <VideoCard 
-
-              image = {el.image}
-              logo = {el.logo}
-              description = {el.description}
-              channelName = {el.channelName}
-            
-             />
-            )
-          })
-        } */}
         <CardItems />
       </div>
       

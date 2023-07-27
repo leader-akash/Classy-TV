@@ -42,3 +42,14 @@
     margin-right: 0.5rem;
     padding-left: 7px;
 }
+
+
+.side-links:hover{
+    color: black;
+}
+
+.sidebar-items.active-text {
+    font-weight: 600;
+    background-color: #eceaea;
+    /* Add any other styles for the active text here */
+  }

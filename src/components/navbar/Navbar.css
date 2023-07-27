@@ -95,6 +95,10 @@ span i {
   cursor: pointer;
 }
 
+.logout-btn{
+  color: red !important;
+}
+
 
 /* Media Queries for Responsiveness */
 

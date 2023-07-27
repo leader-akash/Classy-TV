@@ -1,0 +1,12 @@
+
+
+.side-pages-style{
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    margin-left: 10rem;
+    color: black;
+    font-style: underline;
+    font-size: 30px;
+}
