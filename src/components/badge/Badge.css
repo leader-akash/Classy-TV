@@ -1,0 +1,19 @@
+
+.badge-container{
+    margin-top: 5rem;
+    margin-left: 210px;
+    display: flex;
+    
+}
+
+.badge-items{
+    /* background-color: blue; */
+    margin: 0.5rem;
+    padding: 3px 10px;
+    border: solid 1px #ccc;
+    cursor: pointer;
+}
+
+.badge-items:hover{
+    background-color: #ece9e9;
+}

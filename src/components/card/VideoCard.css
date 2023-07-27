@@ -1,0 +1,64 @@
+
+
+/* .video-card-container{
+    margin-left: 215px;
+   
+} */
+
+/* .video-card-container:hover{
+    background-color: #ccc;
+    
+} */
+
+.video-card{
+    width: 259px;
+    height: 236px;
+    margin-top: 1rem;
+    border-radius: 10px;
+    border: solid 2px transparent;
+    border-radius: 10px 10px 0 0 ;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    margin-right: 20px;
+}
+
+.video-card:hover{
+    border: solid 2px #ccc;
+}
+
+.img-section{
+    width: 259px;
+    border-radius: 10px 10px 0 0 ;
+
+}
+.channel-logo{
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+}
+
+.video-description{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #ccc; */
+    font-size: 14px;
+    padding: 5px 4px 8px 6px;
+    border-bottom: solid 1px #ccc;
+
+}
+
+.more-info{
+    margin: 0 8px 0 2px; 
+    cursor: pointer;
+    
+}
+
+.channel-name{
+    font-weight: 600;
+}
+
+.content{
+    margin: 0 5px 0 8px;
+}
+

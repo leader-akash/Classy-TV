@@ -1,0 +1,100 @@
+
+:root{
+  --login-button: #add8e6 ;
+  --login-hover: #9ad5e9;
+
+  --guest-login: #ccc;
+  --guest-hover: #b3b3b3;
+}
+
+.signin-button{
+    color: black !important;
+    background-color: var(--login-button) !important;
+  }
+
+.signin-button:hover{
+    background-color: var(--login-hover) !important;
+}
+
+.login-header{
+  color: black !important;
+}
+
+.login-page{
+    /* background-color: var(--feature-card-pink); */
+    margin-top: 4.5rem; 
+    padding: 1rem ;
+}
+
+
+.test-credentials{
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-me{
+  cursor: pointer;
+}
+
+.remember-checkbox{
+  /* display: flex;
+  flex-direction: row; */
+  margin-right: 5px;
+  padding: 0;
+  width: fit-content !important;
+  cursor: pointer;
+}
+
+.forgot-password{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.forgot-password:hover{
+  color: var(--button);
+}
+
+.signin-guest{
+  margin-top: 1rem;
+  background-color: var(--guest-login) !important;
+  color:black !important;
+}
+
+.signin-guest:hover{
+  background-color:var(--guest-hover) !important;
+}
+
+.new-user{
+  text-align: center;
+  margin-top: 0.6rem;
+  color:#444654;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.new-user:hover{
+  color:#444654;
+}
+
+.goto-signup:hover{
+  color:inherit;
+}
+
+.input-box{
+  margin-top: 4px;
+}
+
+/* signup css */
+
+
+.sign-button{
+    color: black !important;
+    background-color: var(--login-button) !important;
+  }
+
+.sign-button:hover{
+    background-color: var(--login-hover) !important;
+}
+
+.signup-form{
+  margin-top: 8rem;
+}

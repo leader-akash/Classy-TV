@@ -1,0 +1,7 @@
+:root{
+  /* --primary-color: #0F0F0F; */
+}
+
+.App{
+  background-color: var(--primary-color);
+}
