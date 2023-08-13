@@ -101,7 +101,7 @@ const Signup = () => {
           <button className="sign-button" type="submit">Signup</button>
         </div>
 
-        <div class="new-user">
+        <div className="new-user">
           <Link className="goto-signup" to="/login">&lt; Back to Login</Link>
         </div>
 

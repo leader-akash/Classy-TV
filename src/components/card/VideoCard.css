@@ -20,6 +20,7 @@
     cursor: pointer;
     margin-bottom: 1rem;
     margin-right: 20px;
+    position: relative;
 }
 
 .video-card:hover{
@@ -60,5 +61,39 @@
 
 .content{
     margin: 0 5px 0 8px;
+    
 }
 
+.options{
+    width: 193px;
+    position: absolute;
+    top: 11.3rem;
+    right: 2.2rem;
+    background-color: #ccc;
+    border: solid 1px #363636;
+    border-radius: 3px;
+}
+
+.option-border{
+    border-bottom: solid 1px #363636;
+}
+
+.choose-option{
+    cursor: pointer;
+    padding: 7px 5px;
+    
+}
+
+.choose-option:hover{
+    background-color: #969393;
+}
+
+.option-icon{
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 4px 10px;
+}
+
+.option-icon:hover{
+    background-color: #ccc;
+}

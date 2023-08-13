@@ -6,3 +6,7 @@
     margin-left: 215px;
     
 }
+
+.gallery-flex{
+    display: flex;
+}
