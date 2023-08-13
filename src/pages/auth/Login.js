@@ -100,7 +100,7 @@ const Login = () => {
               <button className="signin-guest" type="submit" onClick={handleLoginAsGuest}>Login as Guest</button>
             </div>
 
-            <div class="new-user">
+            <div className="new-user">
               <Link className="goto-signup" to="/signup">New on Classy Store? Sign up &gt;</Link>
             </div>
           </form>

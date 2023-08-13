@@ -9,11 +9,13 @@ import NewBadge from 'components/badge/NewBadge';
 
 const Homepage = () => {
   return (
-    <div>
+    <div className='gallery-flex'>
       <Sidebar />
+      <div className='gallery-container'> 
       <Badge />
       <div className="videoCardFlex">
         <CardItems />
+      </div>
       </div>
       
     </div>

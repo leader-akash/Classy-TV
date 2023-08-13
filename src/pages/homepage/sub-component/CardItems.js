@@ -2,35 +2,24 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import VideoCard from '../../../components/card/VideoCard';
 import { useState } from 'react';
+import { useVideos } from 'contexts/videos-context';
+import { useFilter } from 'contexts/filter-context';
 
 const CardItems = () => {
 
-    const [videoCardItem, setVideoCardItem] = useState([]);
+    // const [videoCardItem, setVideoCardItem] = useState([]);
 
-    useEffect(() => {
-
-        axios.get(`/api/videos`)
-            .then((res) => {
-                console.log('res', res);
-                setVideoCardItem(res.data.videos);
-            })
-            .catch((err) => {
-                console.log("err", err);
-            })
-
-    }, [])
+    const {allVideos} = useVideos();
+    
+    const {filteredSearch} = useFilter();
 
     return (
         <>
             {
-                videoCardItem.map((el, i) => {
+                filteredSearch.map((el, i) => {
                     return (
                         <VideoCard
-                            key={i}
-                            image={el.image}
-                            logo={el.logo}
-                            description={el.description}
-                            channelName={el.channelName}
+                            details = {el}
                         />
                     )
                 })
