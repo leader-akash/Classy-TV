@@ -1,21 +1,17 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import { useUser } from './user-context';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const WatchLaterContext = createContext(null);
 
 const WatchLaterProvider = ({ children }) => {
 
-    const [getWatchLater, setGetWatchLater] = useState();
-
+    const [getWatchLater, setGetWatchLater] = useState([]);
 
     const tokenVal = localStorage.getItem("token");
 
-    const details = {
-
-    }
-
-    const addToWatchLater = async (details) => {
+    const addToWatchLater = useCallback(async (details) => {
         try {
             const watchResponse = await axios.post(`/api/user/watchlater`,
                 {
@@ -27,13 +23,15 @@ const WatchLaterProvider = ({ children }) => {
                     }
                 })
             setGetWatchLater(watchResponse?.data?.watchlater)
-            console.log("watchREs", watchResponse)
+            toast.success("Added to watch later")
         }
 
         catch (err) {
             console.log("watchErr", err)
         }
-    }
+    })
+
+
 
 
     useEffect(() => {
@@ -44,7 +42,6 @@ const WatchLaterProvider = ({ children }) => {
         })
             .then((res) => {
                 setGetWatchLater(res?.data?.watchlater)
-                console.log("getRessssss", res)
             })
             .catch((err) => {
                 console.log("getErr", err)
@@ -52,9 +49,25 @@ const WatchLaterProvider = ({ children }) => {
     }, [])
 
 
+    
+  const handleRemoveFromWatchlater = (_id) => {
+    axios.delete(`/api/user/watchlater/${_id}`,{
+     headers : {
+       authorization: tokenVal
+     }
+    })
+    .then((res)=>{
+        setGetWatchLater(res?.data?.watchlater);
+     toast.success("Removed from watchlater")
+    })
+    .catch((err)=>{
+     console.log("remove-watch-err", err)
+    })
+ }
+
 
     return (
-        <WatchLaterContext.Provider value={{ addToWatchLater, getWatchLater }}>
+        <WatchLaterContext.Provider value={{ addToWatchLater, getWatchLater,handleRemoveFromWatchlater }}>
             {children}
         </WatchLaterContext.Provider>
     )

@@ -10,3 +10,10 @@
     font-style: underline;
     font-size: 30px;
 }
+
+.trending-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 215px;
+    margin-top: 1rem;
+}

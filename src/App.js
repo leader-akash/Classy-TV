@@ -18,6 +18,7 @@ import Music from "pages/category-pages/Music";
 import Tech from "pages/category-pages/Tech";
 import World from "pages/category-pages/World";
 import Badge from "components/badge/Badge";
+import VideoPage from "pages/videoPage/VideoPage";
 
 function App() {
   const location = useLocation();
@@ -44,6 +45,7 @@ function App() {
         <Route path='/Tech' element={<Tech />} />
         <Route path='/world' element={<World />} />
         <Route path="/mockman" element={<Mockman />} />
+        <Route path="/videos" element={<VideoPage />} />
       </Routes>
       <ToastContainer
         position="top-right"

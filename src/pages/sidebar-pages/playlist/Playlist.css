@@ -1,0 +1,43 @@
+
+
+.playlist-sidebar{
+    margin-left: 190px;
+    margin-top: 1.5rem;
+    width: 240px;
+    background-color: aliceblue;
+    height: 100vh;
+    text-align: center;
+    border: solid 1px #ccc;
+    border-top: none;
+    border-radius:  5px 5px 0 0 ;
+}
+
+.create-new-playlist-btn{
+    margin-top:  1.8rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+}
+
+.playlist-name-sidebar{
+    /* background-color: #ccc; */
+    margin: 0px 0;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-bottom: solid 1px #7a7a7a;
+}
+
+.playlist-name-sidebar:hover{
+background-color: #e9e9e9;
+}
+
+.playlist-horizontal-card{
+    margin-left: 2.5rem;
+    margin-top: 2rem;
+}
+
+.playlist-container{
+    display: flex;
+}

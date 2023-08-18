@@ -3,7 +3,7 @@
 .sidebar-container{
     width: 190px;
     border-right: solid 1px #ccc;
-    height: calc(100vh - 8.125rem);
+    /* height: calc(100vh - 8.125rem); */
     position: fixed;
     overflow-y: auto;
     top: 5rem;

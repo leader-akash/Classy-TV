@@ -36,12 +36,13 @@
     width: 40px;
     border-radius: 50%;
     height: 40px;
+    position: absolute;
 }
 
 .video-description{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: space-between;
+    align-items: center; */
     /* background-color: #ccc; */
     font-size: 14px;
     padding: 5px 4px 8px 6px;
@@ -57,18 +58,20 @@
 
 .channel-name{
     font-weight: 600;
+    margin-left: 45px;
 }
 
 .content{
-    margin: 0 5px 0 8px;
-    
+    margin: 0 5px 0 45px;
+    height: 38px;
 }
 
 .options{
-    width: 193px;
+    width: 202px;
+    font-size: 13px;
     position: absolute;
     top: 11.3rem;
-    right: 2.2rem;
+    right: 1.8rem;
     background-color: #ccc;
     border: solid 1px #363636;
     border-radius: 3px;
@@ -81,17 +84,24 @@
 .choose-option{
     cursor: pointer;
     padding: 7px 5px;
-    
+    z-index: 100;
 }
 
 .choose-option:hover{
-    background-color: #969393;
+    background-color: #b8b4b4;
+}
+
+.option-position{
+    position: absolute;
+    top: 182px;
+    right: -5px;
 }
 
 .option-icon{
     background-color: transparent;
     border-radius: 50%;
     padding: 4px 10px;
+   
 }
 
 .option-icon:hover{

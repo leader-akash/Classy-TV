@@ -1,0 +1,50 @@
+
+
+.my-playlist-container{
+    width: 300px;
+}
+
+.myplaylist-heading{
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: solid 1px #8f8888;
+    padding-bottom: 1rem;
+}
+
+.create-playlist-btn{
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 7px !important;
+    margin-top: 15px;
+    margin-left: 6rem;
+    /* font-weight: 600; */
+}
+
+.playlist-form{
+    margin-top: 1rem;
+
+}
+
+.input-playlist{
+    margin-left: 1.2rem;
+    font-weight: 600;
+}
+
+.playlist-name{
+    padding: 3px 5px;
+    outline: none;
+}
+
+.playlist-name-label{
+    margin: 5px 10px 10px 15px;
+    cursor: pointer;
+}
+
+.playlist-checkbox{
+    margin-right: 8px;
+}
+
+.playlist-name-container{
+    margin: 5px;
+    
+}
