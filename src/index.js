@@ -10,6 +10,7 @@ import { SidebarProvider } from 'contexts/sidebar-context';
 import { VideosProvider } from 'contexts/videos-context';
 import { FilterProvider } from 'contexts/filter-context';
 import { WatchLaterProvider } from 'contexts/watchLater-context';
+import { PlaylistProvider } from 'contexts/playlist-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -21,15 +22,17 @@ root.render(
   <React.StrictMode>
     <Router>
       <UserProvider >
-        <VideosProvider>
-          <WatchLaterProvider>
-            <FilterProvider>
+          <VideosProvider>
+        <FilterProvider>
+        <PlaylistProvider>
+            <WatchLaterProvider>
               <SidebarProvider>
                 <App />
               </SidebarProvider>
-            </FilterProvider>
-          </WatchLaterProvider>
-        </VideosProvider>
+            </WatchLaterProvider>
+            </PlaylistProvider>
+        </FilterProvider>
+          </VideosProvider>
       </UserProvider>
     </Router>
   </React.StrictMode>

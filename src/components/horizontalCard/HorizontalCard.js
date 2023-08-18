@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import "./VideoCard.css"
-import axios from 'axios';
+import React, { useState } from 'react'
+import "./HorizontalCard.css"
+import PlaylistModal from 'components/modal/PlaylistModal';
 import { useWatchLater } from 'contexts/watchLater-context';
 import { useNavigate } from 'react-router-dom';
-import PlaylistModal from 'components/modal/PlaylistModal';
 import { useUser } from 'contexts/user-context';
-import { toast } from 'react-toastify';
 
-// const VideoCard = ({image, logo, description, channelName, _id}) => {
-const VideoCard = ({ details }) => {
+const HorizontalCard = ({ details }) => {
+
+  console.log("information", details)
 
   const [showOption, setShowOptions] = useState(false);
   const tokenVal = localStorage.getItem("token");
@@ -42,30 +41,43 @@ const VideoCard = ({ details }) => {
     setShowOptions(prev => !prev)
   }
 
+  const handleDeleteFromWatchlater= (_id) => {
+    if (getWatchLater?.findIndex((el) => el._id === details._id) !== -1) {
+      handleRemoveFromWatchlater(details._id)
+    }
+  }
+
   // const handlePlaylist = () => {
   //   setIsOpen(true);
   //   setShowOptions(prev => !prev)
   // }
 
-
   return (
-    // <div className='video-card-container'>
 
-    <div className='video-card' >
-      <img className='img-section' src={details.image} alt="img" onClick={handleVideoPlayer} />
+    <div className='horiz-video'>
+    <div className='horiz-video-container' onClick={()=> navigate("/videos")}>
+      <div className='horiz-img'>
+        <img className='horiz-img-src' src={details.image} alt="logo" />
 
-      <div className='video-description' onClick={handleVideoPlayer}>
-        <img className='channel-logo' src={details.logo} alt="logo" />
-        <p className='content'>
-          {details?.description}
-        </p>
-        <small className='channel-name'>{details?.channelName}</small>
       </div>
-      <p className='option-position' onClick={() => setShowOptions(prev => !prev)} ><i className=" more-info fas fa-ellipsis-v option-icon"
-      ></i></p>
+      <div className='horiz-description' >
+        <div className='horiz-channel-info'>
+          <img className='horiz-channel-logo' src={details.logo} alt="logo" />
+          <small className='horiz-channel-name'>{details?.channelName}</small>
+
+        </div>
+        <p className='horiz-content'>
+          {details.description}
+        </p>
+      </div>
+      </div>
+      <div>
+        <i className="fa fa-trash horiz-delete-icon" aria-hidden="true" onClick={handleDeleteFromWatchlater}></i>
+        <i className=" more-info fas fa-ellipsis-v horiz-option-icon" onClick={() => setShowOptions(prev => !prev)}></i>
+      </div>
       {
         showOption ?
-          <div className="options">
+          <div className="options horiz-options">
 
             <div className='' onClick={() => getToken ? handleAddToWatchlater(details._id) : navigate("/login")} >
               {
@@ -75,10 +87,6 @@ const VideoCard = ({ details }) => {
                   <div className='choose-option option-border'><i className='side-icons fas fa-clock'></i> Add to Watch Later </div>
               }
             </div>
-
-            {/* <div className='choose-option' onClick={() => getToken ? handlePlaylist : navigate("/login")}> 
-            <i className='side-icons fas fa-list'></i> Save to Playlist
-            </div> */}
 
             <div className='choose-option' onClick={() => {
               openModal();
@@ -94,12 +102,11 @@ const VideoCard = ({ details }) => {
       <PlaylistModal
         isOpen={isOpen}
         closeModal={closeModal}
-        details={details}
       />
 
     </div>
-    // </div> 
+
   )
 }
 
-export default VideoCard
+export default HorizontalCard

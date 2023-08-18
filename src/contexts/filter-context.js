@@ -14,11 +14,11 @@ const FilterProvider = ({children}) => {
 
     const filterSearch = (allVideos, searchItem) => {
         if(searchItem){
-            if(location.pathname != "/"){
-                searchItem("")
+            if(location.pathname !== "/"){
+                setSearchItem(" ")
             }
             else{
-            return allVideos.filter((videos) => {
+            return allVideos?.filter((videos) => {
                 return (
                     videos?.channelName.toLowerCase()?.includes(searchItem.toLowerCase()) 
                     ||

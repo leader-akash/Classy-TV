@@ -11,7 +11,7 @@ const VideosProvider = ({children}) => {
     const getAllVideos = async () => {
         try {
              const videoResponse = await axios.get(`/api/videos`)
-             setAllVideos(videoResponse.data.videos)
+             setAllVideos(videoResponse?.data?.videos)
         }
         catch (error) {
             console.log("videoErr", error)
