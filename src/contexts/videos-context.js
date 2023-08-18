@@ -8,6 +8,8 @@ const VideosProvider = ({children}) => {
 
     const [allVideos, setAllVideos] = useState([]);
 
+    const [singleVideo, setSingleVideo] = useState();
+
     const getAllVideos = async () => {
         try {
              const videoResponse = await axios.get(`/api/videos`)
@@ -22,9 +24,21 @@ const VideosProvider = ({children}) => {
         getAllVideos();
     }, [])
 
+    const getSingleVideo = (_id) => {
+        axios.get(`/api/video/${_id}`)
+        .then((res)=> {
+                console.log("v-res", res)
+                setSingleVideo(res?.data?.video);
+        })
+        .catch((err)=>{
+            console.log("player-err", err)
+        })
+    }
+
+    console.log("vvvvv", singleVideo);
 
   return (
-    <VideoContext.Provider value={{allVideos, setAllVideos}}>
+    <VideoContext.Provider value={{allVideos, setAllVideos, getSingleVideo, singleVideo}}>
         {children}
     </VideoContext.Provider>
   )

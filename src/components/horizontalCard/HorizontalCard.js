@@ -13,6 +13,7 @@ const HorizontalCard = ({ details }) => {
   const { addToWatchLater, getWatchLater, handleRemoveFromWatchlater } = useWatchLater();
   const {handleDeleteHistory, historyData} = useHistory();
 
+
   const [isOpen, setIsOpen] = useState(false);
 
   const { getToken } = useUser();

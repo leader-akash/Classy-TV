@@ -45,7 +45,7 @@ function App() {
         <Route path='/Tech' element={<Tech />} />
         <Route path='/world' element={<World />} />
         <Route path="/mockman" element={<Mockman />} />
-        <Route path="/videos" element={<VideoPage />} />
+        <Route path="/videos/:videoId" element={<VideoPage />} />
       </Routes>
       <ToastContainer
         position="top-right"

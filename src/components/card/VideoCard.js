@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./VideoCard.css"
 import axios from 'axios';
 import { useWatchLater } from 'contexts/watchLater-context';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PlaylistModal from 'components/modal/PlaylistModal';
 import { useUser } from 'contexts/user-context';
 import { toast } from 'react-toastify';
@@ -23,7 +23,7 @@ const VideoCard = ({ details }) => {
   const navigate = useNavigate();
 
   const handleVideoPlayer = () => {
-    navigate("/videos")
+    navigate(`/videos/${details._id}`)
   }
 
   const openModal = () => {
@@ -54,6 +54,7 @@ const VideoCard = ({ details }) => {
     // <div className='video-card-container'>
 
     <div className='video-card' >
+
       <img className='img-section' src={details.image} alt="img" 
       onClick={()=>
       {
