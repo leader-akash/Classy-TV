@@ -1,7 +1,68 @@
+.video-player-container{
+    margin-left: 1rem;  
+}
 
 .video-container{
     margin-left: 13rem;
-    width: 800px;
-    margin-top: 4rem;
-    height: 500px !important;
+    width: 900px !important;
+    margin-top: 5rem;
+    height: 440px !important;
 }
+
+.youtube-channel-logo{
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+}
+
+.youtube-description{
+    margin-top: 1.3rem;
+    margin-left: 13.5rem;
+    font-size: 20px;
+}
+
+.youtube-info-container{
+    margin-left: 13.5rem;
+    margin-top: 12px;
+    display: flex;
+    width: 900px !important;
+    position: relative;
+    border-bottom: solid 2px #7a7979;
+}
+
+.youtube-channel-name{
+    margin-top: 8px;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.youtube-action-btn{
+    display: flex;
+    margin-top: 10px;
+    position: absolute;
+    right: 1rem;
+    font-size: 18px;
+}
+
+.youtube-playlist{
+    margin-right: 5px;
+}
+
+.youtube-watchlater{
+    margin-right: 1.5rem;
+}
+
+.youtube-like-btn{
+    margin-right: 1.5rem;
+}
+
+.youtube-content{
+    margin-left: 14rem;
+    width: 880px;
+    margin-top: 1rem;
+    font-size: 17px;
+    margin-bottom: 2rem;
+    word-spacing: 2px;
+}
+
