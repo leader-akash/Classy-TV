@@ -42,7 +42,6 @@ const PlaylistProvider = ({ children }) => {
             })
             .then((res) => {
                 setAllPlaylistData(res?.data?.playlists)
-                console.log("playlist-res", res)
             })
             .catch((err) => {
                 console.log("play-err", err)
@@ -57,7 +56,6 @@ const PlaylistProvider = ({ children }) => {
         })
             .then((res) => {
                 setAllPlaylistData(res?.data?.playlists)
-                console.log("sssss", res)
             })
             .catch((err) => {
                 console.log("fffff", err)
@@ -95,7 +93,6 @@ const PlaylistProvider = ({ children }) => {
             }
         })
             .then((res) => {
-                console.log("videos", res);
                 toast.success(`Added in Playlist ${nameVal}`)
             })
             .catch((err) => {
@@ -115,7 +112,6 @@ const PlaylistProvider = ({ children }) => {
             }
         })
             .then((res) => {
-                console.log("res-res", res, _id);
                 setPlaylist(res?.data?.playlist?.videos)
             })
             .catch((err) => {

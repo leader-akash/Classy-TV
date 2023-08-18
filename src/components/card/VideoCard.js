@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import PlaylistModal from 'components/modal/PlaylistModal';
 import { useUser } from 'contexts/user-context';
 import { toast } from 'react-toastify';
+import { useHistory } from 'contexts/history-context';
 
 // const VideoCard = ({image, logo, description, channelName, _id}) => {
 const VideoCard = ({ details }) => {
@@ -13,6 +14,7 @@ const VideoCard = ({ details }) => {
   const [showOption, setShowOptions] = useState(false);
   const tokenVal = localStorage.getItem("token");
   const { addToWatchLater, getWatchLater, handleRemoveFromWatchlater } = useWatchLater();
+  const {handleHistory} = useHistory();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -52,7 +54,12 @@ const VideoCard = ({ details }) => {
     // <div className='video-card-container'>
 
     <div className='video-card' >
-      <img className='img-section' src={details.image} alt="img" onClick={handleVideoPlayer} />
+      <img className='img-section' src={details.image} alt="img" 
+      onClick={()=>
+      {
+        handleVideoPlayer();
+        handleHistory(details)
+      }} />
 
       <div className='video-description' onClick={handleVideoPlayer}>
         <img className='channel-logo' src={details.logo} alt="logo" />
