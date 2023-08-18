@@ -52,7 +52,6 @@ const Signup = () => {
         password: passwordVal
       })
         .then((res) => {
-          console.log("signup", res);
           localStorage.setItem("singup token", res.data?.encodedToken);
           localStorage.setItem("singup info", JSON.stringify(res.data?.createdUser));
           setGetToken(res.data?.encodedToken)

@@ -21,14 +21,9 @@ const Playlist = () => {
     setIsOpen(false);
   }
 
-  console.log("tttttttt", playlist)
-
-
   const handlePlaylistVideos = () => {
     setCurrPlaylist(playlist?.title)
   }
-
-
 
   return (
     <div>
@@ -53,7 +48,6 @@ const Playlist = () => {
         <div className='playlist-horizontal-card'>
           {
             playlist?.map((el, i) => {
-              console.log("ellllll", el)
               return (
                 <HorizontalCard
                   details={el.details}

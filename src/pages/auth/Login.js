@@ -38,9 +38,6 @@ const Login = () => {
 
   const handleLogin = (e) => {
       e.preventDefault(); 
-      console.log("login", emailVal, passwordVal)
-
-
       axios.post(`/api/auth/login`, 
         {
           email: emailVal,
@@ -48,7 +45,6 @@ const Login = () => {
         }
       )
       .then((res)=>{
-        console.log("res-login", res);
         localStorage.setItem("token", res.data?.encodedToken)
         localStorage.setItem("userinfo",  JSON.stringify(res?.data?.foundUser))
         setGetToken(res.data?.encodedToken)

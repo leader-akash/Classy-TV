@@ -1,4 +1,33 @@
 
-.horiz-card-align{
-    margin-left: 200px;
+.history-container{
+    margin-top: 2.5rem;
+    margin-left: 250px;
+    margin-bottom: 1rem;
+}
+
+.clear-history{
+    margin-top: 2.5rem;
+    margin-left: 250px;
+    cursor: pointer;
+    background-color: #FF0000;
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.clear-history:hover{
+    background-color: #e90e0e;
+}
+
+.empty-history{
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 2.5rem;
+    margin-left: 10rem;
+    color: blue;
+}
+
+.timer{
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
 }

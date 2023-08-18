@@ -4,14 +4,14 @@ import PlaylistModal from 'components/modal/PlaylistModal';
 import { useWatchLater } from 'contexts/watchLater-context';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from 'contexts/user-context';
+import { useHistory } from 'contexts/history-context';
 
 const HorizontalCard = ({ details }) => {
-
-  console.log("information", details)
 
   const [showOption, setShowOptions] = useState(false);
   const tokenVal = localStorage.getItem("token");
   const { addToWatchLater, getWatchLater, handleRemoveFromWatchlater } = useWatchLater();
+  const {handleDeleteHistory, historyData} = useHistory();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -47,6 +47,12 @@ const HorizontalCard = ({ details }) => {
     }
   }
 
+  const handleRemoveFromHistory = (_id) => {
+      if(historyData?.findIndex((el)=> el._id === details._id) !== -1){
+        handleDeleteHistory(details._id);
+      }
+  }
+
   // const handlePlaylist = () => {
   //   setIsOpen(true);
   //   setShowOptions(prev => !prev)
@@ -72,7 +78,11 @@ const HorizontalCard = ({ details }) => {
       </div>
       </div>
       <div>
-        <i className="fa fa-trash horiz-delete-icon" aria-hidden="true" onClick={handleDeleteFromWatchlater}></i>
+        <i className="fa fa-trash horiz-delete-icon" aria-hidden="true" 
+        onClick={()=>{
+          handleDeleteFromWatchlater();
+          handleRemoveFromHistory();
+        }}></i>
         <i className=" more-info fas fa-ellipsis-v horiz-option-icon" onClick={() => setShowOptions(prev => !prev)}></i>
       </div>
       {
