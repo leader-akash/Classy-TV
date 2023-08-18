@@ -12,6 +12,7 @@ import { FilterProvider } from 'contexts/filter-context';
 import { WatchLaterProvider } from 'contexts/watchLater-context';
 import { PlaylistProvider } from 'contexts/playlist-context';
 import { HistoryProvider } from 'contexts/history-context';
+import { LikeProvider } from 'contexts/like-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -24,17 +25,19 @@ root.render(
     <Router>
       <UserProvider >
         <VideosProvider>
-          <HistoryProvider>
-            <FilterProvider>
-              <PlaylistProvider>
-                <WatchLaterProvider>
-                  <SidebarProvider>
-                    <App />
-                  </SidebarProvider>
-                </WatchLaterProvider>
-              </PlaylistProvider>
-            </FilterProvider>
-          </HistoryProvider>
+          <LikeProvider>
+            <HistoryProvider>
+              <FilterProvider>
+                <PlaylistProvider>
+                  <WatchLaterProvider>
+                    <SidebarProvider>
+                      <App />
+                    </SidebarProvider>
+                  </WatchLaterProvider>
+                </PlaylistProvider>
+              </FilterProvider>
+            </HistoryProvider>
+          </LikeProvider>
         </VideosProvider>
       </UserProvider>
     </Router>

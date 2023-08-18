@@ -67,7 +67,7 @@ const WatchLaterProvider = ({ children }) => {
 
 
     return (
-        <WatchLaterContext.Provider value={{ addToWatchLater, getWatchLater,handleRemoveFromWatchlater }}>
+        <WatchLaterContext.Provider value={{ addToWatchLater, getWatchLater, handleRemoveFromWatchlater }}>
             {children}
         </WatchLaterContext.Provider>
     )

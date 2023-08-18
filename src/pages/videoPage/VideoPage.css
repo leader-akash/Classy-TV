@@ -47,14 +47,17 @@
 
 .youtube-playlist{
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .youtube-watchlater{
     margin-right: 1.5rem;
+    cursor: pointer;
 }
 
 .youtube-like-btn{
     margin-right: 1.5rem;
+    cursor: pointer;
 }
 
 .youtube-content{
