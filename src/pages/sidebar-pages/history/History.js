@@ -1,6 +1,5 @@
 import React from 'react'
 import "./History.css"
-import HorizontalCard from 'components/horizontalCard/HorizontalCard'
 
 const History = () => {
   return (
