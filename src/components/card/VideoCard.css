@@ -14,7 +14,6 @@
     width: 259px;
     height: 236px;
     margin-top: 1rem;
-    border-radius: 10px;
     border: solid 2px transparent;
     border-radius: 10px 10px 0 0 ;
     cursor: pointer;
@@ -25,6 +24,7 @@
 
 .video-card:hover{
     border: solid 2px #ccc;
+    border-radius: 10px !important;
 }
 
 .img-section{
@@ -48,7 +48,7 @@
     font-size: 14px;
     padding: 5px 4px 8px 6px;
     border-bottom: solid 1px #ccc;
-
+    border-radius: 10px !important;
 }
 
 .more-info{

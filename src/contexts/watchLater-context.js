@@ -15,7 +15,7 @@ const WatchLaterProvider = ({ children }) => {
         try {
             const watchResponse = await axios.post(`/api/user/watchlater`,
                 {
-                    video: details
+                    video: {...details}
                 },
                 {
                     headers: {

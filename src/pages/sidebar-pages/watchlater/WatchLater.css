@@ -1,8 +1,19 @@
-
-
 .watchlater-container{
     display: flex;
     flex-wrap: wrap;
     margin-left:    240px;
     margin-top: 2rem;
+}
+
+.empty-watchlater{
+    text-align: center;
+    font-size: 2.5rem;
+    color: blue;
+    margin-left: 11rem;
+    margin-top: 5rem;
+}
+
+.watchlater-icon{
+    font-size: 4rem;
+    margin-bottom: 1rem;
 }

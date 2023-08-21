@@ -14,7 +14,7 @@ const VideoCard = ({ details }) => {
   const [showOption, setShowOptions] = useState(false);
   const tokenVal = localStorage.getItem("token");
   const { addToWatchLater, getWatchLater, handleRemoveFromWatchlater } = useWatchLater();
-  const {handleHistory} = useHistory();
+  const { handleHistory } = useHistory();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,8 +27,14 @@ const VideoCard = ({ details }) => {
   }
 
   const openModal = () => {
+   if(getToken){
     setIsOpen(true);
+   }
+   else{
+    navigate("/login")
+   }
   }
+
 
   const closeModal = () => {
     setIsOpen(false);
@@ -55,14 +61,17 @@ const VideoCard = ({ details }) => {
 
     <div className='video-card' >
 
-      <img className='img-section' src={details.image} alt="img" 
-      onClick={()=>
-      {
-        handleVideoPlayer();
-        handleHistory(details)
-      }} />
+      <img className='img-section' src={details.image} alt="img"
+        onClick={() => {
+          handleVideoPlayer();
+          handleHistory(details)
+        }} />
 
-      <div className='video-description' onClick={handleVideoPlayer}>
+      <div className='video-description'
+        onClick={() => {
+          handleVideoPlayer();
+          handleHistory(details)
+        }}>
         <img className='channel-logo' src={details.logo} alt="logo" />
         <p className='content'>
           {details?.description}
@@ -88,9 +97,9 @@ const VideoCard = ({ details }) => {
             <i className='side-icons fas fa-list'></i> Save to Playlist
             </div> */}
 
-            <div className='choose-option' onClick={() => {
+            <div className='choose-option' onClick={()  =>  {
               openModal();
-              setShowOptions(prev => !prev)
+              setShowOptions(prev => !prev)   
             }}> <i className='side-icons fas fa-list'></i> Save to Playlist
             </div>
 

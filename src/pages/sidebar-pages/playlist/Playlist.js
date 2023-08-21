@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Playlist.css"
 import { usePlaylist } from 'contexts/playlist-context'
 import VideoCard from 'components/card/VideoCard';
 import PlaylistModal from 'components/modal/PlaylistModal';
 import HorizontalCard from 'components/horizontalCard/HorizontalCard';
+import axios from 'axios';
+import Sidebar from 'components/sidebar/Sidebar';
 
 const Playlist = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const { allPlaylistData, playlist, getPlaylist } = usePlaylist()
+  const { allPlaylistNames, selectedPlaylistVideos, getPlaylistVideos } = usePlaylist()
 
   const [currPlaylist, setCurrPlaylist] = useState([]);
 
@@ -20,24 +22,44 @@ const Playlist = () => {
   const closeModal = () => {
     setIsOpen(false);
   }
-
-  const handlePlaylistVideos = () => {
-    setCurrPlaylist(playlist?.title)
-  }
+const [playlistName, setPlaylistName] = useState([])
+  useEffect (() => {
+    axios.get(`/api/user/playlists`, {
+        headers: {
+            authorization: localStorage.getItem("token")
+        }
+    })
+        .then((res) => {
+            setPlaylistName(res?.data?.playlists)
+        })
+        .catch((err) => {
+            console.log("fffff", err)
+        })
+}, [])
 
   return (
     <div>
+      <Sidebar />
+
       <h2 className='side-pages-style'><u>Your Playlists</u></h2>
       <div className='playlist-container'>
+
+
+
         <div className='playlist-sidebar'>
           <button className='create-new-playlist-btn' onClick={openModal}> Create New Playlist</button>
 
+          <div className='playlist-guide'>
+          Select Playlist to see saved videos 👇
+        </div>
+          
+            {/* allPlaylistNames?.map((el) => { */}
           {
-            allPlaylistData?.map((el) => {
-              console.log("addtoplay", allPlaylistData)
+            playlistName?.map((el) => {
+              console.log('ppp', playlistName)
               return (
-                <div className='playlist-name-sidebar' key={el?._id} onClick={() => getPlaylist(el?._id)}>
-                  {el.title}
+                <div className='playlist-name-sidebar' key={el?._id} onClick={() => getPlaylistVideos(el?._id)}>
+                  {el?.title}
                 </div>
               )
             })
@@ -45,9 +67,17 @@ const Playlist = () => {
 
         </div>
 
+        
+
+
         <div className='playlist-horizontal-card'>
+
+          <button className='delete-playlist-btn'>
+          
+          Delete this Playlist</button>
+{/* here */}
           {
-            playlist?.map((el, i) => {
+            selectedPlaylistVideos?.map((el, i) => {
               return (
                 <HorizontalCard
                   details={el.details}

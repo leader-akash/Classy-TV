@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import VideoCard from '../../../components/card/VideoCard';
 import { useState } from 'react';
 import { useVideos } from 'contexts/videos-context';
-import { useFilter } from 'contexts/filter-context';
+// import { useFilter } from 'contexts/filter-context';
 
 const CardItems = () => {
 
@@ -11,11 +11,11 @@ const CardItems = () => {
 
     const {allVideos} = useVideos();
     
-    const {filteredSearch} = useFilter();
+    // const {filteredSearch} = useFilter();
 
     return (
         <>
-            {
+            {/* {
                 filteredSearch.map((el, i) => {
                     return (
                         <VideoCard
@@ -23,7 +23,7 @@ const CardItems = () => {
                         />
                     )
                 })
-            }
+            } */}
             </>
     )
 }
