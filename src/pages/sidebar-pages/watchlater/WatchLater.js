@@ -30,6 +30,7 @@ const WatchLater = () => {
                   return (
                     <HorizontalCard
                       details={el}
+                      fromPage={'watchlater'}
                     />
                   )
                 })
