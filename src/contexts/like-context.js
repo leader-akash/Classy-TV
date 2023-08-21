@@ -14,13 +14,12 @@ const LikeProvider = ({ children }) => {
     const handleLikeData = async (details) => {
         try {
             const likeResponse = await axios.post(`/api/user/likes`,{
-                video: details
+                video: {...details}
             }, {
                 headers: {
                     authorization: getToken
                 }
             })
-            console.log("like", likeResponse, "details", details)
             
             setLikeData(likeResponse?.data?.likes)
             toast.success("Added to Liked")
@@ -45,14 +44,30 @@ const LikeProvider = ({ children }) => {
         
     }
 
-    useEffect(()=>{
-        getAllLikeData();
-    },[])
+    // here this commented
+    // useEffect(()=>{
+    //     getAllLikeData();
+    // },[])
+
+    const handleRemoveLike = (_id) => {
+        axios.delete(`/api/user/likes/${_id}`,{
+            headers:{
+                authorization: getToken
+            }
+        })
+        .then((res)=>{
+            setLikeData(res?.data?.likes)
+            toast.success("Removed from Like")
+        })
+        .catch((err)=>{
+            console.log("remove-like-err", err)
+        })
+    }
 
 
 
     return (
-        <LikeContext.Provider value={{handleLikeData, likeData , getAllLikeData}}>
+        <LikeContext.Provider value={{handleLikeData, likeData , getAllLikeData, handleRemoveLike}}>
             {children}
         </LikeContext.Provider>
     )

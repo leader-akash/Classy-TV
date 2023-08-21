@@ -13,7 +13,7 @@ const HistoryProvider = ({children}) => {
 
     const handleHistory = (details) => {
         axios.post(`/api/user/history`,{
-            video: details
+            video: {...details}
         },{
             headers: {
                 authorization: getToken
@@ -21,7 +21,6 @@ const HistoryProvider = ({children}) => {
         })
         .then((res)=> {
             setHistoryData(res?.data?.history)
-            console.log("history-res", res)
         })
         .catch((err)=>{
             console.log("his-err", err)
@@ -41,9 +40,11 @@ const HistoryProvider = ({children}) => {
             console.log("his-get-err", err);
         })
     }
-
+// here this commented
     useEffect(()=>{
-        getHistory();
+        if(historyData) {
+            getHistory();
+        }
     },[historyData])
 
 

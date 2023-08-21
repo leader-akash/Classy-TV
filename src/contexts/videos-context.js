@@ -27,15 +27,12 @@ const VideosProvider = ({children}) => {
     const getSingleVideo = (_id) => {
         axios.get(`/api/video/${_id}`)
         .then((res)=> {
-                console.log("v-res", res)
                 setSingleVideo(res?.data?.video);
         })
         .catch((err)=>{
             console.log("player-err", err)
         })
     }
-
-    console.log("vvvvv", singleVideo);
 
   return (
     <VideoContext.Provider value={{allVideos, setAllVideos, getSingleVideo, singleVideo}}>

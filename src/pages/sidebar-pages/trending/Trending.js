@@ -2,6 +2,7 @@ import React from 'react'
 import "./Trending.css"
 import { useVideos } from 'contexts/videos-context'
 import VideoCard from 'components/card/VideoCard'
+import Sidebar from 'components/sidebar/Sidebar'
 
 const Trending = () => {
 
@@ -10,6 +11,8 @@ const Trending = () => {
 
   return (
     <div>
+      <Sidebar />
+
       <h2 className='side-pages-style'><u>Trending Videos</u></h2>
 
         <div className='trending-container'>

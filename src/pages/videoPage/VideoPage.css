@@ -69,3 +69,12 @@
     word-spacing: 2px;
 }
 
+.liked-btn{
+    color: blue;
+    font-weight: 600;
+}
+
+.watchlater-btn{
+    color: blue;
+    font-weight: 600;
+}

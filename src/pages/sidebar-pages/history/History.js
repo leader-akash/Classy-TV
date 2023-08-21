@@ -2,6 +2,7 @@ import React from 'react'
 import "./History.css"
 import { useHistory } from 'contexts/history-context'
 import HorizontalCard from 'components/horizontalCard/HorizontalCard';
+import Sidebar from 'components/sidebar/Sidebar';
 
 const History = () => {
 
@@ -9,6 +10,8 @@ const History = () => {
 
   return (
     <div>
+      <Sidebar />
+
       <h2 className='side-pages-style'><u> Your Watch History</u></h2>
     {
       historyData.length > 0 ? 

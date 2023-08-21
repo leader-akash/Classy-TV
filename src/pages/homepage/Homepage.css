@@ -10,3 +10,20 @@
 .gallery-flex{
     display: flex;
 }
+
+.no-search{
+    font-size: 22px;
+    text-align: center;
+    margin-left: 25rem;
+    margin-top: 7rem;
+}
+
+.no-video{
+    font-size: 27px
+}
+
+.try-search{
+    color: red;
+    margin-top: 0.8rem;
+    font-size: 26px;
+}

@@ -5,6 +5,7 @@ import { useWatchLater } from 'contexts/watchLater-context';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from 'contexts/user-context';
 import { useHistory } from 'contexts/history-context';
+import { useLike } from 'contexts/like-context';
 
 const HorizontalCard = ({ details }) => {
 
@@ -12,17 +13,13 @@ const HorizontalCard = ({ details }) => {
   const tokenVal = localStorage.getItem("token");
   const { addToWatchLater, getWatchLater, handleRemoveFromWatchlater } = useWatchLater();
   const {handleDeleteHistory, historyData} = useHistory();
-
-
   const [isOpen, setIsOpen] = useState(false);
-
   const { getToken } = useUser();
+  const {handleRemoveLike, likeData} = useLike();
+
 
   const navigate = useNavigate();
 
-  const handleVideoPlayer = () => {
-    navigate("/videos")
-  }
 
   const openModal = () => {
     setIsOpen(true);
@@ -53,6 +50,11 @@ const HorizontalCard = ({ details }) => {
         handleDeleteHistory(details._id);
       }
   }
+  const handleDeleteFromLike = (_id) => {
+      if(likeData?.findIndex((el)=> el._id === details._id) !== -1){
+        handleRemoveLike(details._id);
+      }
+  }
 
   // const handlePlaylist = () => {
   //   setIsOpen(true);
@@ -62,19 +64,19 @@ const HorizontalCard = ({ details }) => {
   return (
 
     <div className='horiz-video'>
-    <div className='horiz-video-container' onClick={()=> navigate("/videos")}>
+    <div className='horiz-video-container' onClick={()=> navigate(`/videos/${details._id}`)}>
       <div className='horiz-img'>
-        <img className='horiz-img-src' src={details.image} alt="logo" />
+        <img className='horiz-img-src' src={details?.image} alt="logo" />
 
       </div>
       <div className='horiz-description' >
         <div className='horiz-channel-info'>
-          <img className='horiz-channel-logo' src={details.logo} alt="logo" />
+          <img className='horiz-channel-logo' src={details?.logo} alt="logo" />
           <small className='horiz-channel-name'>{details?.channelName}</small>
 
         </div>
         <p className='horiz-content'>
-          {details.description}
+          {details?.description}
         </p>
       </div>
       </div>
@@ -83,6 +85,7 @@ const HorizontalCard = ({ details }) => {
         onClick={()=>{
           handleDeleteFromWatchlater();
           handleRemoveFromHistory();
+          handleDeleteFromLike();
         }}></i>
         <i className=" more-info fas fa-ellipsis-v horiz-option-icon" onClick={() => setShowOptions(prev => !prev)}></i>
       </div>
@@ -90,9 +93,9 @@ const HorizontalCard = ({ details }) => {
         showOption ?
           <div className="options horiz-options">
 
-            <div className='' onClick={() => getToken ? handleAddToWatchlater(details._id) : navigate("/login")} >
+            <div className='' onClick={() => getToken ? handleAddToWatchlater(details?._id) : navigate("/login")} >
               {
-                getWatchLater.findIndex((el) => el._id === details._id) !== -1 && getToken ?
+                getWatchLater.findIndex((el) => el._id === details?._id) !== -1 && getToken ?
                   <div className='choose-option option-border'><i className='side-icons fas fa-clock'></i> Remove from Watch Later </div>
                   :
                   <div className='choose-option option-border'><i className='side-icons fas fa-clock'></i> Add to Watch Later </div>
