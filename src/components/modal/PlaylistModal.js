@@ -29,7 +29,7 @@ const PlaylistModal = ({ isOpen, closeModal, ...details }) => {
           allPlaylistNames?.map((playlistName) => (
             <div className='playlist-name-container' key={playlistName?._id}>
               <label className='playlist-name-label'>
-                <input className='playlist-checkbox'  type="checkbox" id={playlistName?.title} 
+                <input focus className='playlist-checkbox'  type="checkbox" id={playlistName?.title} 
                  onChange={() => handleAddVideoToPlaylist(details, playlistName?._id)}
                   // checked={el?.videos?.some(({_id}) => _id === allPlaylistNames?.videos?._id)} 
                 />

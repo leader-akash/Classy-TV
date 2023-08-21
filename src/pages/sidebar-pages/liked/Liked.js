@@ -27,6 +27,7 @@ const Liked = () => {
             return (
               <HorizontalCard
                 details={el}
+                fromPage={'like'}
               />
             )
           })

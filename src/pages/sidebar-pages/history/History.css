@@ -20,14 +20,14 @@
 }
 
 .empty-history{
-    text-align: center;
-    margin-top: 4rem;
-    font-size: 2.5rem;
-    margin-left: 10rem;
     color: blue;
+    font-size: 2rem;
+    margin-left: 10rem;
+    margin-top: 8rem;
+    text-align: center;
 }
 
 .timer{
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
 }

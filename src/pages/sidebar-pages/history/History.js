@@ -28,6 +28,7 @@ const History = () => {
             return (
               <HorizontalCard
                 details={el}
+                fromPage={'history'}
               />
             )
           })

@@ -27,6 +27,9 @@ const Navbar = () => {
 
    const handleSearch = (e) => {
       setSearchItem(e.target.value);
+      if(location.pathname !== "/"){
+         setSearchItem("")
+      }
    }
 
    //  **** wihtout timeout 

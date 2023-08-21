@@ -86,7 +86,8 @@ const PlaylistProvider = ({ children }) => {
   const getPlaylistVideos = (_id) => {
     console.log('myvideos', playlistsNamesAndVideos, _id)
     const videoObj = playlistsNamesAndVideos.find(el => el?._id === _id);
-    setSelectedPlaylistVideos(videoObj?.videos)
+    setSelectedPlaylistVideos(videoObj)
+    console.log("vdoObjv", videoObj);
   }
 
 
@@ -94,9 +95,45 @@ const PlaylistProvider = ({ children }) => {
   //     getPlaylistVideos();
   // },[])
 
+  const handleDeletVideoFromPlaylist = (playlistId, videoId) => {
+    axios.delete(`/api/user/playlists/${playlistId}/${videoId}`,{
+       headers: {
+        authorization: localStorage.getItem("token")
+       }
+    })
+    .then((res)=>{
+      console.log("deleteplay", res);
+      setSelectedPlaylistVideos(res?.playlist)
+      toast.success("Video removed from playlist")
+   })
+   .catch((err)=>{
+    console.log("dlt-err", err);
+   })
+  }
+
+  const handleDeletePlaylist = (playlistId) => {
+    axios.delete(`/api/user/playlists/${playlistId}`,{
+      headers: {
+        authorization: localStorage.getItem("token")
+      }
+    })
+    .then((res)=>{
+      console.log("lllll", res);
+      setAllPlaylistNames(res?.data?.playlists );
+      // setPlaylistsNamesAndVideos(prev => [...prev, res?.data?.playlist])
+
+    })
+    .catch((err)=>{
+      console.log("aaaaa", err);
+    })
+  }
+
+  useEffect(()=>{
+    handleDeletePlaylist();
+  },[])
 
   return (
-    <PlaylistContext.Provider value={{ allPlaylistNames, setAllPlaylistNames, handleCreatePlaylistName, nameVal, setNameVal, selectedPlaylistVideos, getPlaylistVideos, handleAddVideoToPlaylist }}>
+    <PlaylistContext.Provider value={{ allPlaylistNames, setAllPlaylistNames, handleCreatePlaylistName, nameVal, setNameVal, selectedPlaylistVideos, getPlaylistVideos, handleAddVideoToPlaylist, handleDeletVideoFromPlaylist, handleDeletePlaylist }}>
       {children}
     </PlaylistContext.Provider>
   )
