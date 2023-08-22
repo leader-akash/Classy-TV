@@ -50,7 +50,7 @@ const Navbar = () => {
     <>
 
       <div className="nav-two-container">
-        <Link className="logo-hover" to="/"><div className="logo"> Classy TV <img className="classy-logo" src={logo} alt="logo" /></div></Link>
+        <Link className="logo-hover" to="/"><div className="logo"> Classy <img className="classy-logo" src={logo} alt="logo" /></div></Link>
         <div className="search-bar" onClick={handleSeachPages}>
           <input className="search-input" type="search" placeholder="Search Classy TV" onChange={handleSearch} />
           <i className="fa-solid fa-magnifying-glass "></i>
