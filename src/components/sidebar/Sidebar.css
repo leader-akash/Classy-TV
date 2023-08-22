@@ -46,3 +46,14 @@
     background-color: #eceaea;
     /* Add any other styles for the active text here */
   }
+
+  .contact-link:hover{
+    color: inherit;
+  }
+
+  .profile-links{
+    margin-top: 7rem;
+    margin-left: 2rem;
+    font-size: 18px;
+    padding: 0 5px
+}

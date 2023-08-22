@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Homepage.css"
 import Sidebar from '../../components/sidebar/Sidebar';
 import Badge from '../../components/badge/Badge';
@@ -15,6 +15,10 @@ const Homepage = () => {
 
   const [activeCategory, setActiveCategory] = useState('All');
   const { allVideos } = useVideos();
+
+  useEffect(()=>{
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  },[])
 
 
   const handleFilter = (val) => {

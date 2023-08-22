@@ -10,7 +10,6 @@ import { usePlaylist } from 'contexts/playlist-context';
 
 const HorizontalCard = ({ details, fromPage }) => {
 
-  console.log("dddd", details)
   const [showOption, setShowOptions] = useState(false);
   const tokenVal = localStorage.getItem("token");
   const { addToWatchLater, getWatchLater, handleRemoveFromWatchlater } = useWatchLater();

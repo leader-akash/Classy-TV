@@ -6,7 +6,6 @@ import { makeServer } from "./server";
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import { UserProvider } from 'contexts/user-context';
-import { SidebarProvider } from 'contexts/sidebar-context';
 import { VideosProvider } from 'contexts/videos-context';
 import { FilterProvider } from 'contexts/filter-context';
 import { WatchLaterProvider } from 'contexts/watchLater-context';
@@ -30,9 +29,7 @@ root.render(
               <FilterProvider>
                 <PlaylistProvider>
                   <WatchLaterProvider>
-                    <SidebarProvider>
                       <App />
-                    </SidebarProvider>
                   </WatchLaterProvider>
                 </PlaylistProvider>
               </FilterProvider>

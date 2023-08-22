@@ -49,24 +49,8 @@ const PlaylistProvider = ({ children }) => {
 
   const [playlistsNamesAndVideos, setPlaylistsNamesAndVideos] = useState([]);
   // for videos 
-  // here 
 
-  // const singlePlaylist = (id) => {
-  //   axios.get(`/api/user/playlists/${id}`, {
-  //     headers: {
-  //       authorization: localStorage.getItem("token")
-  //     }
-  //   })
-  //     .then((res) => {
-  //       console.log('gett', res)
-  //       //     setSelectedPlaylistVideos(res?.data?.playlist?.videos)
-  //     
-  //     .catch((err) => {
-  //       console.log("res-err", err)
-  //     })
-  // }
   const handleAddVideoToPlaylist = (video, playlistId) => {
-    console.log('pid', playlistId, 'det', video)
     axios.post(`/api/user/playlists/${playlistId}`,
       { video }, {
       headers: {
@@ -84,16 +68,11 @@ const PlaylistProvider = ({ children }) => {
   }
 
   const getPlaylistVideos = (_id) => {
-    console.log('myvideos', playlistsNamesAndVideos, _id)
     const videoObj = playlistsNamesAndVideos.find(el => el?._id === _id);
     setSelectedPlaylistVideos(videoObj)
-    console.log("vdoObjv", videoObj);
   }
 
 
-  // useEffect(()=>{
-  //     getPlaylistVideos();
-  // },[])
 
   const handleDeletVideoFromPlaylist = (playlistId, videoId) => {
     axios.delete(`/api/user/playlists/${playlistId}/${videoId}`,{
@@ -102,7 +81,6 @@ const PlaylistProvider = ({ children }) => {
        }
     })
     .then((res)=>{
-      console.log("deleteplay", res);
       setSelectedPlaylistVideos(res?.playlist)
       toast.success("Video removed from playlist")
    })
@@ -118,13 +96,10 @@ const PlaylistProvider = ({ children }) => {
       }
     })
     .then((res)=>{
-      console.log("lllll", res);
       setAllPlaylistNames(res?.data?.playlists );
-      // setPlaylistsNamesAndVideos(prev => [...prev, res?.data?.playlist])
 
     })
     .catch((err)=>{
-      console.log("aaaaa", err);
     })
   }
 

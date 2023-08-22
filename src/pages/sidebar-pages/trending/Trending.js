@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Trending.css"
 import { useVideos } from 'contexts/videos-context'
 import VideoCard from 'components/card/VideoCard'
@@ -9,7 +9,9 @@ const Trending = () => {
 
   const { allVideos } = useVideos();
   const { filteredSearch } = useFilter();
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [])
 
   return (
     <div>
