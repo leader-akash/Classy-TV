@@ -40,6 +40,7 @@ const HistoryProvider = ({children}) => {
             console.log("his-get-err", err);
         })
     }
+    
 // here this commented
     useEffect(()=>{
         if(historyData) {

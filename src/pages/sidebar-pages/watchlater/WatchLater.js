@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./WatchLater.css"
 import "../SidePagesStyle.css"
 import VideoCard from 'components/card/VideoCard'
@@ -9,6 +9,11 @@ import Sidebar from 'components/sidebar/Sidebar'
 const WatchLater = () => {
 
   const { getWatchLater, showWatchLater } = useWatchLater();
+
+  useEffect(()=>{
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  },[])
+
   return (
     <div>
       <Sidebar />

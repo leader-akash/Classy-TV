@@ -44,10 +44,6 @@ const LikeProvider = ({ children }) => {
         
     }
 
-    // here this commented
-    // useEffect(()=>{
-    //     getAllLikeData();
-    // },[])
 
     const handleRemoveLike = (_id) => {
         axios.delete(`/api/user/likes/${_id}`,{

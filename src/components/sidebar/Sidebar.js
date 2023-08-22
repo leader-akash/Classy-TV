@@ -7,10 +7,6 @@ import { useSidebar } from 'contexts/sidebar-context';
 const Sidebar = () => {
   const location = useLocation();
 
-  const { showSidebar } = useSidebar();
-
-
-
   const isActiveLink = (pathname) => {
     return location.pathname === pathname;
   };
@@ -70,6 +66,13 @@ const Sidebar = () => {
               <i className='side-icons fas fa-clock'></i> Watch Later
             </div>
           </Link>
+
+          <div className='profile-links'>
+          <Link className='contact-link' to="https://www.linkedin.com/in/hi-akash/" target='_blank'><i class="fa-brands fa-linkedin"></i></Link>
+          <Link className='contact-link' to="https://github.com/leader-akash" target='_blank'><i class="fa-brands fa-github"></i> </Link>
+          <Link className='contact-link' to="https://twitter.com/AkashAk50675432" target='_blank'><i class="fa-brands fa-twitter"></i></Link>
+          </div>
+
         </div>
       </div>
     </>

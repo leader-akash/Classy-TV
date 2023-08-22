@@ -11,7 +11,10 @@
   --button-fade: #13da13;
 }
 
-
+.classy-logo{
+  width: 49px;
+  margin-left: 5px;
+}
 
 .logo-bold {
   font-weight: bold;
@@ -32,7 +35,11 @@
 .logo {
   font-size: 24px;
   margin-left: 1rem;
-  margin-top: 0;
+  margin-top: -7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .logo-hover:hover{

@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useUser } from 'contexts/user-context';
-// import { useSidebar } from 'contexts/sidebar-context';
 
 
 const Login = () => {
@@ -12,7 +11,9 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  
+  useEffect(()=>{
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  },[])
 
   const handlePasswordVisible = () => {
     setIsPasswordVisible(prev => !prev);
@@ -20,7 +21,6 @@ const Login = () => {
 
   const [emailVal, setEmailVal] = useState();
   const [passwordVal, setPasswordVal] = useState();
-  const [loginStatus, setLoginStatus] = useState();
   const {setGetToken} = useUser();
 
   const handleEmail = (e) => {
@@ -48,8 +48,8 @@ const Login = () => {
         localStorage.setItem("token", res.data?.encodedToken)
         localStorage.setItem("userinfo",  JSON.stringify(res?.data?.foundUser))
         setGetToken(res.data?.encodedToken)
-        toast.success(`welcome back, ${res.data?.foundUser?.name} 🎉 Enjoy Shopping 🛒`);
-      navigate("/");
+        toast.success(`welcome back, ${res.data?.foundUser?.name} 🎉 Enjoy the Shows 🛒`);
+      navigate(-1);
       }
       )
       .catch((err)=>{

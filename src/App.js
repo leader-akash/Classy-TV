@@ -13,6 +13,8 @@ import WatchLater from "pages/sidebar-pages/watchlater/WatchLater";
 import Liked from "pages/sidebar-pages/liked/Liked";
 import History from "pages/sidebar-pages/history/History";
 import VideoPage from "pages/videoPage/VideoPage";
+import RestrictAuth from "components/auth-route/RestrictAuth";
+import RequireAuth from "components/auth-route/RequireAuth";
 
 function App() {
   const location = useLocation();
@@ -22,11 +24,19 @@ function App() {
 
       <Navbar />
       <Routes>
-        <Route path='/' element={<Homepage />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/trending' element={<Trending />} />
+
+        <Route element={<RestrictAuth />} >
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+        </Route>
+
+        <Route element={<RequireAuth />}>
         <Route path='/playlist' element={<Playlist />} />
+        <Route path='/playlist/:playlistId' element={<Playlist />} />
+        </Route>
+
+        <Route path='/' element={<Homepage />} />
+        <Route path='/trending' element={<Trending />} />
         <Route path='/watchlater' element={<WatchLater />} />
         <Route path='/liked' element={<Liked />} />
         <Route path='/history' element={<History />} />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Liked.css"
 import { useLike } from 'contexts/like-context'
 import HorizontalCard from 'components/horizontalCard/HorizontalCard';
@@ -7,6 +7,9 @@ import Sidebar from 'components/sidebar/Sidebar';
 const Liked = () => {
 
   const { likeData } = useLike();
+  useEffect(()=>{
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  },[])
 
   return (
     <div>

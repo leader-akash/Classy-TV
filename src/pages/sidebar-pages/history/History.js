@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./History.css"
 import { useHistory } from 'contexts/history-context'
 import HorizontalCard from 'components/horizontalCard/HorizontalCard';
@@ -7,7 +7,9 @@ import Sidebar from 'components/sidebar/Sidebar';
 const History = () => {
 
   const { historyData, handleClearAllHistory } = useHistory();
-
+  useEffect(()=>{
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  },[])
   return (
     <div>
       <Sidebar />

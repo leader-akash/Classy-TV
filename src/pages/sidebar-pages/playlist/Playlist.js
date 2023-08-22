@@ -1,44 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import "./Playlist.css";
 import { usePlaylist } from 'contexts/playlist-context';
-import VideoCard from 'components/card/VideoCard';
 import PlaylistModal from 'components/modal/PlaylistModal';
 import HorizontalCard from 'components/horizontalCard/HorizontalCard';
-import axios from 'axios';
 import Sidebar from 'components/sidebar/Sidebar';
+import { useFilter } from 'contexts/filter-context';
+import { useUser } from 'contexts/user-context';
+import { useNavigate } from 'react-router-dom';
 
 const Playlist = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const {setSearchItem} = useFilter();
+  const {getToken} = useUser();
 
   const { allPlaylistNames, setAllPlaylistNames, selectedPlaylistVideos, getPlaylistVideos, handleDeletePlaylist } = usePlaylist();
 
   const [currPlaylist, setCurrPlaylist] = useState([]);
+  const navigate = useNavigate();
 
   const playlistId = selectedPlaylistVideos?._id;
 
+  useEffect(()=>{
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    setSearchItem("");
+  },[])
+
   const openModal = () => {
+    if(getToken){
     setIsOpen(true);
+    }
+    else{
+      navigate("/login")
+    }
   };
 
   const closeModal = () => {
     setIsOpen(false);
   };
 
-  const [playlistName, setPlaylistName] = useState([]);
-
-  // useEffect(() => {
-  //   axios.get(`/api/user/playlists`, {
-  //     headers: {
-  //       authorization: localStorage.getItem("token")
-  //     }
-  //   })
-  //     .then((res) => {
-  //       setPlaylistName(res?.data?.playlists);
-  //     })
-  //     .catch((err) => {
-  //       console.log("fffff", err);
-  //     });
-  // }, []);
 
   return (
     <div>
@@ -48,11 +47,8 @@ const Playlist = () => {
       <div className='playlist-container'>
         <div className='playlist-sidebar'>
           <button className='create-new-playlist-btn' onClick={openModal}> Create New Playlist</button>
-          <div className='playlist-guide'>
-            Select Playlist to see saved videos 👇
-          </div>
           {allPlaylistNames?.map((el) => (
-            <div className='playlist-name-sidebar' key={el?._id} onClick={() => getPlaylistVideos(el?._id)}>
+            <div className={`playlist-name-sidebar ${el._id === playlistId ? 'active-plyalist-name' : ''}`} key={el?._id} onClick={() => getPlaylistVideos(el?._id)}>
               {el?.title}
             </div>
           ))}
